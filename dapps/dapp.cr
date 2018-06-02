@@ -208,10 +208,10 @@ module ::Sushi::Core::DApps::User
       recipients : RecipientsDecimal,
       message : String,
       token : String
-    ) : Bool
+    ) : Transaction?
       if blockchain.indices.get(id)
         info "skip creating transaction #{id}"
-        return false
+        return nil
       end
 
       unsigned_transaction = blockchain.transaction_creator.create_unsigned_transaction_impl(
@@ -227,7 +227,11 @@ module ::Sushi::Core::DApps::User
 
       node.broadcast_transaction(signed_transaction)
 
-      true
+      signed_transaction
+    rescue e : Exception
+      error e.message.not_nil!
+
+      nil
     end
 
     #
