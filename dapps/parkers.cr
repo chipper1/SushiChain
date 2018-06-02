@@ -50,7 +50,7 @@ module ::Sushi::Core::DApps::User
         sender = create_sender(amount)
         recipient = create_recipient(json["user"].as_s, amount)
 
-        id = sha256(action + amount)
+        id = sha256(Time.now.to_s)
 
         tx = create_transaction(
           id,
@@ -58,7 +58,7 @@ module ::Sushi::Core::DApps::User
           sender,
           recipient,
           "",
-          TOKEN_DEFAULT,
+          "SUGAR",
         )
 
         context.response.print tx.to_json
