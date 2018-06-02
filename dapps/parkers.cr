@@ -40,27 +40,6 @@ module ::Sushi::Core::DApps::User
     end
 
     def new_block(block)
-      # block.transactions.each do |tx|
-      #   if tx.action == TARGET_ACTION
-      #     info "parkers' transaction coming!"
-      #  
-      #     sender = create_sender("0.00001")
-      #     recipient = create_recipient(transaction.senders[0][:address], "0.00001")
-      #  
-      #     id = create_transaction_id(block, transaction)
-      #  
-      #     created = create_transaction(
-      #       id,
-      #       "send",
-      #       sender,
-      #       recipient,
-      #       tx.message,
-      #       TOKEN_DEFAULT,
-      #     )
-      #  
-      #     info "created a transaction from CreateTransaction(UserDApp): #{id}" if created
-      #   end
-      # end
     end
 
     def define_rpc?(call, json, context)

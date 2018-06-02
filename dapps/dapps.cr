@@ -14,7 +14,8 @@ module ::Sushi::Core::DApps::User
   #
   # please add your dApps into the 'USER_DAPPS'
   #
-  USER_DAPPS = %w(HelloWorld CreateTransaction)
+  # USER_DAPPS = %w(HelloWorld CreateTransaction)
+  USER_DAPPS = %w(Parkers)
 
   {% for dapp in USER_DAPPS %}
     @{{ dapp.id.underscore }} : {{ dapp.id }}?
